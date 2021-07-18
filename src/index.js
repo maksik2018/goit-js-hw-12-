@@ -16,7 +16,7 @@ function onSearch(event) {
     // event.preventDefault();
     refs.country.innerHTML = '';
     refs.countryList.innerHTML = '';
-  const onLettersSearch = event.target.value;
+  const onLettersSearch = event.target.value.trim();
   if (onLettersSearch === "") {
     return;
   }
