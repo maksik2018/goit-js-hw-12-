@@ -12,11 +12,15 @@ const DEBOUNCE_DELAY = 300;
 refs.searchCountry.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(event) {
+
     // event.preventDefault();
     refs.country.innerHTML = '';
     refs.countryList.innerHTML = '';
-    const onLettersSearch = event.target.value;
-    // console.log(onLettersSearch);
+  const onLettersSearch = event.target.value;
+  if (onLettersSearch === "") {
+    return;
+  }
+        // console.log(onLettersSearch);
 
   fetchCountries(onLettersSearch)
     .then(renderCountryCard)
@@ -44,4 +48,6 @@ function renderCountryCard (countries){
 
 }
 
-//  console.log(fetchCountries());
+// fetch('http://api.weatherstack.com/current?access_key=15be63129d1040f285ca5bef35d2e382&query=52.5244,13.4105')
+//   .then(r => r.json())
+//   .then(console.log);
